@@ -1,0 +1,14 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_CN/sdk.js#xfbml=1&version=v2.5&appId=1303256026358045";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+	<h1>{{news.title}}</h1>
+	<img ng-src = {{news.img}}>
+	<pre>{{news.content}}</pre>
+<div class="fb-comments" data-href="http://104.236.199.200/Happy_News/app/#/content/{{news.id}}" data-numposts="5"></div>
