@@ -83,3 +83,9 @@ pre {
     max-width: 300px; 
     max-height: 184px;
 }
+
+.content_img{
+	margin-right: auto;
+	margin-left: auto;
+	display:block;
+}
