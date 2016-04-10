@@ -7,7 +7,7 @@
       </div>
           <div class="media-body">
            <h4 class="media-heading">{{i.title}}</h4>
-           <div><span class="author">Author: {{i.author}}</span><span class="time">{{i.time}}</span></div>   
+           <div><span class="author">Author: {{i.author}}</span><span class="time">{{i.time | date:'mediumDate'}}</span></div>   
            <div> {{i.abstract}}
            </div> 
            <br>
