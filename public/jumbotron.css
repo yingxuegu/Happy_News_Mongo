@@ -43,7 +43,6 @@ body {
 }
 
 #sidebar-boundary {
-	border-left-style: solid;
 	padding-left: 20px;
 	height: 1000px;
 	border-width: 2px;
