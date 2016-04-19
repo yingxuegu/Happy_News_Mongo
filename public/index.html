@@ -71,7 +71,7 @@
 
 
         <div class="container">
-          <h1>I will do the best news website</h1>
+          <h1>News</h1>
         </div>
       </div>
     </div>
@@ -79,12 +79,12 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-8">  
+        <div class="col-md-8 col-xs-8 col-xs-offset-2">  
          <div ng-view></div> 
         </div> 
 
         <!-- Hot News -->
-        <div class="col-md-3 col-md-offset-1  blog-sidebar" id="sidebar-boundary">
+        <div class="col-md-3 col-md-offset-1 blog-sidebar" id="sidebar-boundary">
           <div ng-controller='hotNewsCtrl'>
             <uib-tabset active="active">
                   <uib-tab index="0" heading="Today">
