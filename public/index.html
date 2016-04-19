@@ -71,7 +71,7 @@
 
 
         <div class="container">
-          <h1>News</h1>
+          <h1>{{}}</h1>
         </div>
       </div>
     </div>
@@ -79,7 +79,7 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-8 col-xs-8 col-xs-offset-2">  
+        <div class="col-md-8 col-xs-8 col-xs-2">  
          <div ng-view></div> 
         </div> 
 
@@ -107,6 +107,7 @@
           </div>
 
           <!-- Weather -->
+          <div class="col-md-8 col-md-offset-2">
           <todays-weather
                 location="New York City, NY"
                 custom-size="100"
@@ -114,11 +115,12 @@
           </todays-weather>
 
           <div
-          class="fb-like"
-          data-share="true"
-          data-width="450"
-          data-show-faces="true">
-        </div>
+            class="fb-like"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+          </div>
+         </div>
         </div> <!-- /row-->
      </div><!-- /.blog-sidebar -->
 
