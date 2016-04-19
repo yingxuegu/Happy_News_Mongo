@@ -8,7 +8,7 @@ app.use(express.static(__dirname + "/public"));
 
 app.get('/wholenews', function (req, res) {
 	console.log("receive news request");
-	db.news.find(function(err, doc){
+	db.news.find().sort({time: -1}, function(err, doc){
 		console.log("whole news data comes from database");
 		res.json(doc);
 	});
@@ -16,7 +16,7 @@ app.get('/wholenews', function (req, res) {
 
 app.get('/politics', function (req, res) {
 	console.log("receive political news request");
-	db.news.find({ 'topic.0': 'Politics' }, function(err, doc){
+	db.news.find({ 'topic.0': 'Politics' }).sort({time: -1}, function(err, doc){
 		console.log("polictial news data comes from database");
 		res.json(doc);
 	});
@@ -24,7 +24,7 @@ app.get('/politics', function (req, res) {
 
 app.get('/entertainment', function (req, res) {
 	console.log("receive entertainment news request");
-	db.news.find({ 'topic.0': 'Entertainment' }, function(err, doc){
+	db.news.find({ 'topic.0': 'Entertainment' }).sort({time: -1}, function(err, doc){
 		console.log("entertainment news data comes from database");
 		res.json(doc);
 	});
@@ -32,7 +32,7 @@ app.get('/entertainment', function (req, res) {
 
 app.get('/sports', function (req, res) {
 	console.log("receive sports news request");
-	db.news.find({ 'topic.0': 'Sports' }, function(err, doc){
+	db.news.find({ 'topic.0': 'Sports' }).sort({time: -1}, function(err, doc){
 		console.log("sports news data comes from database");
 		res.json(doc);
 	});
@@ -41,7 +41,7 @@ app.get('/sports', function (req, res) {
 
 app.get('/technology', function (req, res) {
 	console.log("receive technology news request");
-	db.news.find({ 'topic.0': 'Technology' }, function(err, doc){
+	db.news.find({ 'topic.0': 'Technology' }).sort({time: -1}, function(err, doc){
 		console.log("Technology news data comes from database");
 		res.json(doc);
 	});

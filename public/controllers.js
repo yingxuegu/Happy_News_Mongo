@@ -11,8 +11,18 @@ newsControllers.controller('NewsDetailCtrl', ['$scope', '$routeParams', '$http',
   }]);
 
 //whole news controller
-newsControllers.controller('wholeInformationCtrl', ['$scope', '$http', function($scope, $http) {
+newsControllers.controller('wholeInformationCtrl', ['$scope', '$window',  '$http', function($scope, $window, $http) {
   $scope.goal = "I will do the best news website";
+  //check screen size
+  var windowSize = $window.innerWidth;
+  $scope.showImg = true;
+  //for phones
+  if(windowSize > 768) {
+    $scope.showImg = true;
+  }else  {
+    $scope.showImg = false;
+  }
+
   $http.get('/wholenews').success(function(response) {
     console.log("I got news list");
     $scope.news = response;
@@ -175,6 +185,21 @@ newsControllers.controller('AlertDemoCtrl',['$scope', 'mySharedService', functio
         $scope.login = true;
         $scope.addAlert();
     });  
+}]);
+
+newsControllers.controller('hotNewsCtrl', ['$scope', function($scope){
+  $scope.hotNewsList = [
+  {'link': 'http://localhost:3000/#/content/16', 'title': '‘Zootopia’ Nears $700M Global; ‘The Revenant’ Crosses $500M Globally – International Box Office Final'},
+  {'link': 'http://localhost:3000/#/content/5', 'title':'Sanders sweeps in Alaska, Hawaii, Washington, but too little too late?' },
+  {'link': 'http://localhost:3000/#/content/23', 'title': 'Sources: Badgers to name Tony Granato men\'s hockey coach'},
+  {'link': 'http://localhost:3000/#/content/4', 'title': 'Donald Trump\'s history of controversy with women'},
+  {'link': 'http://localhost:3000/#/content/2', 'title': 'Bernie Sanders: \'I think we know who ISIS is\''},
+  {'link': 'http://localhost:3000/#/content/7', 'title': 'Cruz blames Trump and his \'henchmen\' for tabloid story'},
+  {'link': 'http://localhost:3000/#/content/0', 'title': 'Putin’s Surprise Syria Move Keeps Everyone Guessing'},
+  {'link': 'http://localhost:3000/#/content/11', 'title': 'Hillary Clinton: \'Tomorrow, this campaign goes national\''},
+  {'link': 'http://localhost:3000/#/content/26', 'title': 'After racist tweets, Microsoft muzzles teen chat bot Tay'},
+  {'link': 'http://localhost:3000/#/content/25', 'title': 'Facebook activates Safety Check after Brussels attacks'}
+  ];
 }]);
 
 

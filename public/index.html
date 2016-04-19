@@ -85,48 +85,21 @@
 
         <!-- Hot News -->
         <div class="col-md-3 col-md-offset-1  blog-sidebar" id="sidebar-boundary">
-          <div>
+          <div ng-controller='hotNewsCtrl'>
             <uib-tabset active="active">
                   <uib-tab index="0" heading="Today">
                     <ol>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
+                      <li data-ng-repeat = "i in hotNewsList"><a href={{i.link}}>{{i.title}}</a></li>
                     </ol>
                   </uib-tab>
                   <uib-tab index="1" heading="This Week">
                     <ol>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
+                      <li data-ng-repeat = "i in hotNewsList"><a href={{i.link}}>{{i.title}}</a></li>
                     </ol>
                   </uib-tab>
                    <uib-tab index="2" heading="Months">
                     <ol>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
-                      <li><a href="">a</a></li>
+                      <li data-ng-repeat = "i in hotNewsList"><a href={{i.link}}>{{i.title}}</a></li>
                     </ol>
                    </uib-tab>
             </uib-tabset>
@@ -187,7 +160,6 @@
       version    : 'v2.5'
     });
   };
-
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
