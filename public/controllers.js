@@ -12,7 +12,7 @@ newsControllers.controller('NewsDetailCtrl', ['$scope', '$routeParams', '$http',
 
 //whole news controller
 newsControllers.controller('wholeInformationCtrl', ['$scope', '$window',  '$http', function($scope, $window, $http) {
-  $scope.goal = "I will do the best news website";
+  $scope.goal = "Whole News";
   //check screen size
   var windowSize = $window.innerWidth;
   $scope.showImg = true;
@@ -33,8 +33,16 @@ newsControllers.controller('wholeInformationCtrl', ['$scope', '$window',  '$http
 }]);
 
 //politics controller
-newsControllers.controller('politicsNewsCtrl', ['$scope', '$http', function($scope, $http) {
-  $scope.goal = "I will do the best news website";
+newsControllers.controller('politicsNewsCtrl', ['$scope', '$http', '$window', function($scope, $http, $window) {
+  var windowSize = $window.innerWidth;
+  $scope.showImg = true;
+  //for phones
+  if(windowSize > 768) {
+    $scope.showImg = true;
+  }else  {
+    $scope.showImg = false;
+  }
+  $scope.goal = "politics";
   $http.get('/politics').success(function(response) {
     console.log("I got political news list");
     $scope.news = response;
@@ -44,8 +52,16 @@ newsControllers.controller('politicsNewsCtrl', ['$scope', '$http', function($sco
 	};
 }]);
 //entainment controller
-newsControllers.controller('entertainmentNewsCtrl', ['$scope', '$http', function($scope, $http) {
-  $scope.goal = "I will do the best news website";
+newsControllers.controller('entertainmentNewsCtrl', ['$scope', '$http', '$window', function($scope, $http, $window) {
+  $scope.goal = "Entertainment";
+  var windowSize = $window.innerWidth;
+  $scope.showImg = true;
+  //for phones
+  if(windowSize > 768) {
+    $scope.showImg = true;
+  }else  {
+    $scope.showImg = false;
+  }
   $http.get('/entertainment').success(function(response) {
     console.log("I got entainment news list");
     $scope.news = response;
@@ -55,8 +71,16 @@ newsControllers.controller('entertainmentNewsCtrl', ['$scope', '$http', function
 	};
 }]);
 //sports controller
-newsControllers.controller('sportsNewsCtrl', ['$scope', '$http', function($scope, $http) {
-  $scope.goal = "I will do the best news website";
+newsControllers.controller('sportsNewsCtrl', ['$scope', '$http', '$window', function($scope, $http, $window) {
+  $scope.goal = "Sports";
+  var windowSize = $window.innerWidth;
+  $scope.showImg = true;
+  //for phones
+  if(windowSize > 768) {
+    $scope.showImg = true;
+  }else  {
+    $scope.showImg = false;
+  }
   $http.get('/sports').success(function(response) {
     console.log("I got sports news list");
     $scope.news = response;
@@ -66,8 +90,16 @@ newsControllers.controller('sportsNewsCtrl', ['$scope', '$http', function($scope
 	};
 }]);
 //Technology controller
-newsControllers.controller('technologyNewsCtrl', ['$scope', '$http', function($scope, $http) {
-  $scope.goal = "I will do the best news website";
+newsControllers.controller('technologyNewsCtrl', ['$scope', '$http', '$window', function($scope, $http, $window) {
+  $scope.goal = "Technology";
+  var windowSize = $window.innerWidth;
+  $scope.showImg = true;
+  //for phones
+  if(windowSize > 768) {
+    $scope.showImg = true;
+  }else  {
+    $scope.showImg = false;
+  }
   $http.get('/technology').success(function(response) {
     console.log("I got technology news list");
     $scope.news = response;
