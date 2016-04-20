@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Happy News</title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=0.1, maximum-scale=0.1">
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 
@@ -29,7 +29,7 @@
   <script src="service.js"></script>
   <script src="directive.js"></script>
   </head>
-  <body class="col-xs-12">
+  <body class="container">
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container" ng-controller="ModalDemoCtrl">
         <div class="navbar-header">
@@ -41,7 +41,6 @@
           <span class="icon-bar"></span>
         </button>
           <a class="navbar-brand" href="#/">Home</a>
-          
         </div>
         <div id="headerButton" class="collapse navbar-collapse ">
           <div class="topics">
@@ -78,8 +77,8 @@
 
     <div class="container">
       <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-8 col-xs-12">  
+      <div class="row container">
+        <div class="col-md-8 ">  
          <div ng-view></div> 
         </div> 
 

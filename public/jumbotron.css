@@ -6,7 +6,7 @@ body {
 
 .news {
 	border: 2px solid #C0C0C0;
-	padding: 10px;x 
+	padding: 10px;
 }
 
 .vertical
@@ -80,8 +80,9 @@ pre {
 .content_list {
 	height: auto; 
     width: auto; 
-    max-width: 300px; 
-    max-height: 184px;
+
+    max-width: 30em; 
+    max-height: 13em;
 }
 
 .content_img{
