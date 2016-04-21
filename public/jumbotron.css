@@ -93,3 +93,7 @@ pre {
 	margin-left: auto;
 	display:block;
 }
+
+.button_toggle {
+	margin-left: 10px;
+}
