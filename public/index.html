@@ -30,6 +30,23 @@
   <script src="directive.js"></script>
   </head>
   <body class="container">
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '601751489981823',
+        xfbml      : true,
+        version    : 'v2.6'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+ </script>
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container" ng-controller="ModalDemoCtrl">
         <div class="navbar-header">
@@ -147,27 +164,5 @@
 
 
   <!--get your geolocation by ipaddress-->
-  <script>
-  $.getJSON('http://ipinfo.io/8.8.8.8', function(data){
-      console.log(data);
-    });
-  </script>
-
-  <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1303256026358045',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-  };
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
 </body>
 </html>
