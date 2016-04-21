@@ -3,10 +3,9 @@
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
 	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/zh_CN/sdk.js#xfbml=1&version=v2.5&appId=1303256026358045";
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=971779312891516";
 	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-	</script>
+	}(document, 'script', 'facebook-jssdk'));</script>
 
 	<div>
 		<h1>{{news.title}}</h1>
@@ -21,7 +20,7 @@
 			<div>
 				<pre>{{news.content}}</pre>
 			</div>	
-			<div class="fb-comments" data-href="http://http://www.guxueying.com:3000/#/content/{{news.id}}" data-numposts="5">
-			</div>
+
+			<div class="fb-comments" data-href="http://http://www.guxueying.com:3000/#/content/{{news.id}}" data-numposts="5"></div>
 		</div>
 	</div>
