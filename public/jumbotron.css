@@ -99,5 +99,6 @@ pre {
 }
 
 .comment {
-	margin-left: 5em;
+	margin: auto;
+    width: 70%;
 }
