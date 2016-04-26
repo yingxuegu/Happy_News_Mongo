@@ -32,6 +32,63 @@ newsControllers.controller('wholeInformationCtrl', ['$scope', '$window',  '$http
 	};
 }]);
 
+
+
+newsControllers.controller('adminCtrl', ['$scope', '$window',  '$http', function($scope, $window, $http) {
+   var refresh = function() {
+      $http.get('/wholenews').success(function(response) {
+      console.log("I got news list");
+      $scope.news = response;
+      }); 
+  };
+  //get data
+  refresh();
+  //add News
+  $scope.addNews = function() {
+        $scope.singleNews.time = $('#time').val();
+        console.log("single news: " + $scope.singleNews.time);
+        $http.post('/addnews', $scope.singleNews).success(
+          function(response) {
+            console.log(response);
+            refresh();
+          }
+        );
+  };
+
+  $scope.removeNews = function(id) {
+    console.log("id: " + id);
+    $http.delete('/removenews' + '/' + id).success(function(err, doc){refresh();});
+  };
+
+  $scope.clear = function() {
+    $scope.singleNews = {};
+    $('#time').val("");
+  };
+
+  $scope.update = function() {
+    var id = $scope.singleNews._id;
+    console.log("edit id: " + id);
+    $scope.singleNews.time = $('#time').val();
+    $http.put("/updatenews/" + id, $scope.singleNews).success(function(response) {
+      refresh();
+    });
+  };
+
+  $scope.editNews= function(id){
+    console.log("id: " + id);
+    $http.get('/editnews/' + id).success(function(response){
+      console.log("edit single news: " + response );
+      $scope.singleNews = response;
+      $('#time').val($scope.singleNews.time);
+      //console.log("date time value " + $scope.singleNews.time);
+    });
+
+  };
+}]);
+
+
+
+
 //politics controller
 newsControllers.controller('politicsNewsCtrl', ['$scope', '$http', '$window', function($scope, $http, $window) {
   var windowSize = $window.innerWidth;

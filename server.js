@@ -5,6 +5,7 @@ var db = mongojs('news', ['news']);
 var bodyParser = require("body-parser");
 
 app.use(express.static(__dirname + "/public"));
+app.use(bodyParser.json());
 
 app.get('/wholenews', function (req, res) {
 	console.log("receive news request");
@@ -21,6 +22,24 @@ app.get('/politics', function (req, res) {
 		res.json(doc);
 	});
 });
+
+
+app.post('/addnews', function(req, res) {
+	console.log("show new news");
+	console.log("body:" + req.body);
+	db.news.insert(req.body, function(error, doc) {
+		res.json(doc);
+	});
+});
+
+app.delete('/removenews/:id', function(req, res) {
+	var id = req.params.id;
+	db.news.remove({_id: mongojs.ObjectId(id)}, function(error, doc){
+		res.json(doc);
+	});
+});
+
+
 
 app.get('/entertainment', function (req, res) {
 	console.log("receive entertainment news request");
@@ -63,6 +82,29 @@ app.get('/news/:id', function(req, res) {
 	db.news.findOne({id: parseInt(id, 10)}, function(error, doc){
 		res.json(doc);
 	});
+});
+
+app.get('/editnews/:id', function(req, res){
+	var id = req.params.id;
+	console.log("res get id " + id);
+	db.news.findOne({_id: mongojs.ObjectId(id)}, function(error, doc) {
+		res.json(doc);
+	});
+} );
+
+app.put('/updatenews/:id', function(req, res) {
+	var id = req.params.id;
+	console.log("update news id: " + req.params.id);
+	db.news.findAndModify(
+		{
+			query: {_id: mongojs.ObjectId(id)}, 
+			update: {$set: {title: req.body.title, author: req.body.author, 
+				content: req.body.content, time: req.body.time} },
+			new: true
+		}, function(error, doc){
+			res.json(doc);
+		}
+	);
 });
 
 

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="newsWebsite" class="no-js"> 
+  <head> 	
+	 <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <title>Happy News - Admain</title>
+	  <meta name="description" content="">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+	    <!-- Custom styles for this template -->
+	  <link href="jumbotron.css" rel="stylesheet">
+	  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+	  <script src="bower_components/angular/angular.js"></script>
+	  <script src="bower_components/angular-route/angular-route.js"></script>
+  	  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  	  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+	  <script src="bower_components/moment/min/moment.min.js"></script>
+	  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	  <script src="bower_components/angular-weather-directive/dist/angular-weather-directive.min.js"></script>
+	  <script src="bower_components/angular-animate/angular-animate.js"></script>
+	  <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	  <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+	  <script src="app.js"></script>
+  	  <script src="controllers.js"></script>
+  	  <script src="service.js"></script>
+      <script src="directive.js"></script>
+
+	  <!-- Latest compiled and minified CSS -->
+
+  </head>	
+  <body>
+  	<div class="container col-md-12" ng-controller="adminCtrl">
+		<h1>News List</h1>
+		<div>
+			<div class="col-md-6">
+				<label for="title">Title</label>
+				<input class="form-control" ng-model="singleNews.title">
+			</div>
+			<div class="col-md-6">
+				<label for="title">Author</label>
+				<input class="form-control" ng-model="singleNews.author">
+			</div>
+
+			<div class="col-md-6">
+				<div>
+					<label for="Date and Time">Date and Time</label>
+				</div>
+				<div class="container col-md-8">
+				    <div class="row">
+				        <div class=''>
+				            <div class="form-group">
+				                <div class='input-group date' id='datetimepicker1'>
+				                    <input type='text' value="some date time" class="form-control" id='time'/>
+				                    <span class="input-group-addon">
+				                        <span class="glyphicon glyphicon-calendar"></span>
+				                    </span>
+				                </div>
+				            </div>
+				        </div>
+				        <script type="text/javascript">
+				            $(function () {
+				            	console.log("date and time start");
+				                $('#datetimepicker1').datetimepicker();
+				            });
+				        </script>
+				    </div>
+			    </div>
+		    </div>
+		    <div class="col-md-6">
+		    	<div>
+					<label for="Date and Time">Image</label>
+				</div>
+				<button type="button" class="btn btn-primary">Upload Image</button>
+		    </div>
+		    <div class="form-group col-md-12">
+			  <label for="content">Content:</label>
+			  <textarea class="form-control" rows="10" id="comment" ng-model="singleNews.content"></textarea>
+			  <br>
+			  <div class="center_button">
+			  <button type="button" class="btn btn-primary" ng-click="addNews()">Add</button>
+				<button type="button" class="btn btn-success" ng-click="update()">Update</button>
+				<button type="button" class="btn btn-danger" ng-click="clear()">clear</button>
+			  </div>
+			</div>
+
+		</div>
+		
+		
+		<br>
+
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Date and Time</th>
+					<th>Content</th>
+					<th>Action</th>
+				</tr>
+
+				<tr ng-repeat="n in news">
+					<td>{{n.title}}</td>
+					<td>{{n.author}}</td>
+					<td>{{n.time}}</td>
+					<td>content</td>
+					<td> <button class="btn btn-info" ng-click="editNews(n._id)">Edit</button></td>
+					<td> <button class="btn btn-danger" ng-click="removeNews(n._id)">Delete</button></td>
+				</tr>
+			</thead>
+		</table>
+		<!--<input ng-model = "test"> {{test}}-->
+	</div>		
+  </body>
+</html>

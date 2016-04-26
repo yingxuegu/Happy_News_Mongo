@@ -101,3 +101,9 @@ pre {
 .comment_detail {
 	margin-left: 10%;
 }
+
+.center_button {
+    margin: auto;
+    width: 20%;
+    padding: 10px;
+}
